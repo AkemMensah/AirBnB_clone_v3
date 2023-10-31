@@ -1,4 +1,4 @@
-wq#!/usr/bin/python3
+#!/usr/bin/python3
 """
 Create a new view for State objects - handles all default RESTful API actions.
 """
