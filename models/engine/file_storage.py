@@ -11,6 +11,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
+import models
 
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
@@ -70,7 +71,7 @@ class FileStorage:
         self.reload()
 
     def get(self, cls, id):
-        """return the obj based on the class name and its ID, or 
+        """return the obj based on the class name and its ID, or
         None if not found
         """
         if cls not in classes.values():
@@ -91,5 +92,5 @@ class FileStorage:
             for item in all_class:
                 count += len(models.storage.all(item).values())
         else:
-            count = len (models.storage.all(cls).values())
+            count = len(models.storage.all(cls).values())
         return count
