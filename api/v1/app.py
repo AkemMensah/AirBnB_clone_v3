@@ -5,6 +5,7 @@
 
 from flask import Flask, jsonify
 from models import storage
+from flask_cors import CORS
 from os import getenv
 from api.v1.views import app_views
 
@@ -12,6 +13,8 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 app.url_map.strict_slashes = False
 
+# enable CORS and allow for origins:
+CORS(app, resources={r'/api/v1/*': {'origins': '0.0.0.0'}})
 
 @app.teardown_appcontext
 def downtear(self):
