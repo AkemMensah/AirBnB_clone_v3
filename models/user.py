@@ -6,7 +6,7 @@ from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-import hashlib
+#import hashlib
 
 
 class User(BaseModel, Base):
@@ -28,12 +28,12 @@ class User(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes user"""
         #chech whether 'password' is a key in the keyword args (kwargs)
-        pwd = kwargs.pop('password', None)
-        if pwd:
+        #pwd = kwargs.pop('password', None)
+        #if pwd:
             #create MDS hash obj
-            secure.update(pwd.encode("utf-8"))
+            #secure.update(pwd.encode("utf-8"))
             # Get the hex digest of hash
-            secure_password = secure.hexdigest()
+            #secure_password = secure.hexdigest()
             # update the password key in kwargs with hash password
-            kwargs['password'] = secured_password 
+            #kwargs['password'] = secured_password 
         super().__init__(*args, **kwargs)
