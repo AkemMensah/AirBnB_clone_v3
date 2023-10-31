@@ -9,6 +9,7 @@ from models.state import State
 from api.v1.views import app_views
 from models import storage
 
+
 # Route for retrieving all State objects
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 def get_all_states():
@@ -31,7 +32,7 @@ def get_state(state_id):
     state = storage.get(State, state_id)
     if state:
         # Return the State object in JSON format
-	 return jsonify(state.to_dict())
+        return jsonify(state.to_dict())
     else:
         # Return 404 error if the State object is not found
         abort(404)
@@ -94,7 +95,7 @@ def update_state(state_id):
         data = request.get_json()
         ignore_keys = ['id', 'created_at', 'updated_at']
         # Update the attributes of the State object with the JSON data
-	for key, value in data.items():
+        for key, value in data.items():
             if key not in ignore_keys:
                 setattr(state, key, value)
 
