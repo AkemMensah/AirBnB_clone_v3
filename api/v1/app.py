@@ -16,6 +16,7 @@ app.url_map.strict_slashes = False
 # enable CORS and allow for origins:
 CORS(app, resources={r'/api/v1/*': {'origins': '0.0.0.0'}})
 
+
 @app.teardown_appcontext
 def downtear(self):
     '''Status of your API'''
